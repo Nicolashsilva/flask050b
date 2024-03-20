@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{%block head %}
+{{super()}}
+<link href="/static/login.css" rel="stylesheet">
+{%endblock%}
+
+{% block title %}Login top{% endblock %}
+
+{% block page_content %}
+<div class="container">
+    <form action"/login" class="form-signin" method ="POST">
+        {{form.hidden_tag()}}
+        <h2 class = "form-signin-heading">Login:</h2>
+        {{form.username(class="input-block-level",placeholder="Usuário ou e-mail")}}
+        {{form.password(class="input-block-level",placeholder="Informe sua senha")}}
+        {{form.submit(class="btn btn-large btn-primary")}}
+    </form>
+
+    </div>
+
+<p>The local date and time is {{ moment(current_time).format('LLL') }}.</p>
+<p>That was {{ moment(current_time).fromNow(refresh=True) }}.</p>
+{% endblock %}
